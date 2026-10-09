@@ -194,6 +194,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <span className="text-emerald-400 font-semibold">SSL Secured</span>
           </div>
         </div>
+
+        {/* Designer & Developer Attribution */}
+        <div className="mt-6 pt-4 border-t border-slate-900/60 text-center">
+          <p className="text-[11px] tracking-wide text-slate-500 font-normal">
+            Designed & Developed by <span className="text-slate-400 font-medium">Guru Kiran</span>
+          </p>
+        </div>
       </div>
     </footer>
   );
