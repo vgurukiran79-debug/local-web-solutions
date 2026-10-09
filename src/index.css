@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Avoid pure white: soft warm modern canvas with subtle gradient tints */
+    background-color: #f1f5f9;
+  }
+
+  body {
+    background: radial-gradient(circle at 10% 10%, rgba(2, 132, 199, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 25%, rgba(249, 115, 22, 0.07) 0%, transparent 45%),
+                radial-gradient(circle at 15% 75%, rgba(16, 185, 129, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 85% 85%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                #f8fafc;
+    color: #0f172a;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* 3D Depth & Perspective */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+/* Subtle float animation */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(-0.5deg);
+  }
+}
+
+@keyframes pulseGlowRing {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlowRing 4s ease-in-out infinite;
+}
+
+/* 3D Card Hover Depth */
+.card-3d-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+}
+
+.card-3d-hover:hover {
+  transform: translateY(-6px) rotateX(2deg) rotateY(-1deg);
+}
+
+/* Slim scroll progress bar styling */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, #0284c7 0%, #06b6d4 30%, #f97316 65%, #10b981 100%);
+  z-index: 100;
+  transition: width 0.08s ease-out;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.8), 0 0 16px rgba(249, 115, 22, 0.5);
+}
